@@ -11,18 +11,30 @@ Identify what aspects of the work have been correctly implemented and what have 
 		2. Xmas scan (http://nmap.org/book/man-port-scanning-techniques.html)
 		3. Credit card number leaked in the clear via website
 			Example) http://support.microsoft.com/kb/258255
+	
+		Prints an alert for each incident detected. (e.g For a Null scan,
+		this can mean many Null scan alerts from the same source IP.).
+		
+		Display Format: 
+			#{incident_number}. ALERT: #{attack} is detected from #{source IP address} (#{protocol}) (#{payload})!
 			
-		NOTE: It will print an alert for each incident detected. (e.g For a Null scan,
-		this can mean many Null scan alerts from the same source IP.)
+		Example:
+			1. ALERT: Credit card leaked in the clear from 192.168.1.7 (HTTP) (binary data)!
+			2. ALERT: NULL scan is detected from 192.168.1.8 (TCP) (binary data)!
 		
 	2. Analyze Web Server Log for the following incidents
-		1. Shellcode
+		1. Shellcode (https://morgawr.github.io/hacking/2014/03/29/shellcode-to-reverse-bind-with-netcat/)
 		2. NMAP scan (http://nmap.org/book/man-port-scanning-techniques.html)
 		3. HTTP errors (anything with HTTP status code in the 400-range)
 		
-		NOTE: If multiple incidents occurred in the same request, only ONE alert 
-		is printed (in the order above)
-
+		Prints an alert for each incident detected. If multiple incidents occur
+		on the same line in the log, only ONE alert is printed (in the order above)
+		
+		Display Format:
+			#{incident_number}. ALERT: #{attack} is detected from #{source IP address} (#{protocol}) (#{payload})!
+			
+		Example:
+			1. ALERT: HTTP error is detected from 192.168.1.3 (HTTP) ("GET /phpMyAdmin/scripts/setup.php HTTP/1.1")!
 
 Identify anyone with whom you have collaborated or discussed the assignment.
 	I spoke with the professor and asked some questions on Piazza
