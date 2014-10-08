@@ -36,6 +36,13 @@ Identify what aspects of the work have been correctly implemented and what have 
 		Example:
 			1. ALERT: HTTP error is detected from 192.168.1.3 (HTTP) ("GET /phpMyAdmin/scripts/setup.php HTTP/1.1")!
 
+	Not Implemented
+		Credit card strange behavior.  For some reason, the alerts don't go off when navigating to a web page. So, instead
+		I have to do a wget <url>.  It's unclear why that is.  
+		
+		Example:
+			wget http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm
+		
 Identify anyone with whom you have collaborated or discussed the assignment.
 	I spoke with the professor and asked some questions on Piazza
 	

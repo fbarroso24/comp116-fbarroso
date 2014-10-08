@@ -81,15 +81,16 @@ end
 
 # For info on credit card leaks visit: http://www.sans.org/security-resources/idfaq/snort-detect-credit-card-numbers.php
 def checkCreditCardLeak(payload)
-	visa = "4\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}"
-	mastercard = "5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}"
-	discover = "6011(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}"
-	amex = "3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}"
+	visa = /4\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/
+	mastercard = /5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/
+	discover = /6011(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}/
+	amex = /3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}/
 	patterns = [visa, mastercard, discover, amex]
 	
 	patterns.each do |card| 
-		hit = payload.scan(/#{card}/i)	
-		if hit.size > 0
+		hit = payload.match card
+		if hit != nil
+			# puts "Found a hit on card #{card} & hit is #{hit}"
 			return true
 		end
 	end
