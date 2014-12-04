@@ -6,9 +6,11 @@ Homework 5: Forensics
 Question 1:
 Image B is smaller than the others.  Image B is 89 KB while images A & C are 95 kb.
  If you run steghide extract -sf b.jpg -p <passwd> on the image it will produce a runme file.
+ In this particular case, the password is 'disney'
+ 
  If you then make the file an executable and run it (i.e ./runme Rob) it will display
  
-      Rob, you are doing a heckuvajob tp to this point!
+      Rob, you are doing a heckuvajob to this point!
 
 Question 2:
 1) What is/are the disk format(s) of the disk on the suspect's computing device?
